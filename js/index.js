@@ -1,18 +1,19 @@
+let btn = document.getElementById("btnMostrarPersonajes");
+btn.addEventListener("click", MostrarPersonajes)
+
 function MostrarPersonajes() {
   /* URL del API */
   const API_URL = "https://rickandmortyapi.com/api/character";
 
   /* Ocultar botón */
-  document.getElementById("btnMostrarPersonajes").classList.add("ocultar");
+  btn.classList.add("ocultar");
 
   /* Petición al API */
   fetch(API_URL, { method: "GET" })
-  .then((response) => response.json())
-  .then((jsonResponse) => {
-
-    const template = jsonResponse.results.map((character)=>{
-      return (`
-
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      const template = jsonResponse.results.map((character) => {
+        return `
         <div class="card card-element">
           <img src=${character.image} class="card-img-top" alt=${character.name}>
           <div class="card-body">
@@ -27,14 +28,14 @@ function MostrarPersonajes() {
             <a href="${character.url}" class="card-link">Ver información del personaje</a>
           </div>
        </div>
-      `)
-    })
-    
-    let container = document.getElementById("container")
+      `;
+      });
 
-    
-    for (let index = 0; index < template.length; index++) {
-      container.innerHTML += template[index]      
+      let container = document.getElementById("container");
+
+      for (let index = 0; index < template.length; index++) {
+        container.innerHTML += template[index];
+      }
     }
-  })
-  }
+  );
+}
