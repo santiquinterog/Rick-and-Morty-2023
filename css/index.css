@@ -1,0 +1,22 @@
+h1 {
+  font-family: 'Silkscreen', cursive;
+  text-align: center;
+  margin: 30px 0px;
+  font-size: 4em;
+}
+
+.container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-element {
+  width: 18rem;
+  margin:  20px 10px;
+}
+
+.ocultar {
+  display: none;
+}
